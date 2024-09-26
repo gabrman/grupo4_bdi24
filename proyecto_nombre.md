@@ -18,11 +18,26 @@
 
 ### Caso de estudio
 
-Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. 
+    TIENDA ONLINE DE PLANTAS. 
+a.Tema:
+Título: "Desarrollo de una Tienda Online para la Venta de Plantas y Accesorios de Jardinería"
+En este trabajo se investigará el diseño y la implementación de una tienda online dedicada a la venta de plantas, productos de jardinería y accesorios. El objetivo es crear una plataforma que facilite la compra de estos productos para los usuarios, garantizando una experiencia de usuario amigable y eficiente.
 
-### Definición o planteamiento del problema
+b.En la actualidad, el interés por las plantas ha aumentado debido a la conciencia ambiental y los beneficios del contacto con la naturaleza. Sin embargo, muchas personas no tienen acceso fácil a viveros o tiendas de jardinería locales. Además, la falta de plataformas especializadas en la venta de plantas dificulta la compra en línea de estos productos. Por tanto, el problema radica en cómo desarrollar una tienda online que no solo permita la compra de plantas de manera eficiente, sino que también ofrezca una experiencia satisfactoria para el usuario.
 
-Pellentesque interdum aliquam magna sit amet rutrum. Nulla aliquam ligula nec quam iaculis dictum. In cursus aliquam cursus. Nullam a sem vel sapien iaculis finibus. Donec aliquam dictum viverra. Etiam ut orci lacus.
+c. Objetivo del Trabajo Práctico:
+El propósito de este trabajo es diseñar y desarrollar una tienda online que ofrezca a los usuarios la posibilidad de adquirir plantas y accesorios de jardinería de manera fácil, rápida y confiable.
+
+i. Objetivo General:
+Desarrollar una plataforma web que permita la compra en línea de plantas y productos de jardinería, ofreciendo a los usuarios una experiencia de compra satisfactoria.
+
+ii. Objetivos Específicos:
+
+Crear un catálogo de productos con información detallada sobre cada planta y accesorio.
+Implementar un sistema de carrito de compras y pago en línea.
+Desarrollar funcionalidades que ayuden a los usuarios a elegir las plantas más adecuadas según sus necesidades.
+Proporcionar contenido educativo sobre el cuidado de las plantas a través de la plataforma.
+Garantizar la seguridad y privacidad de los datos personales y financieros de los usuarios.
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
