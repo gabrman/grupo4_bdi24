@@ -29,7 +29,7 @@ c. Objetivo del Trabajo Práctico:
 El propósito de este trabajo es diseñar y desarrollar una tienda online que ofrezca a los usuarios la posibilidad de adquirir plantas y accesorios de jardinería de manera fácil, rápida y confiable.
 
 i. Objetivo General:
-Desarrollar una plataforma web que permita la compra en línea de plantas y productos de jardinería, ofreciendo a los usuarios una experiencia de compra satisfactoria.
+Desarrollar una plataforma web que permita la administracion de ventas de plantas y productos de jardinería, ofreciendo a los usuarios una experiencia de compra satisfactoria.
 
 ii. Objetivos Específicos:
 
