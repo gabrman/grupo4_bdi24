@@ -1,18 +1,47 @@
-# Proyecto de Estudio!
-    
-**Estructura del documento principal:**
 
-# PRESENTACIÓN (Título/Nombre Proyecto)
 
-**Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
-**Integrantes**:
- - Gabriel Román
- - Nicolás Verdichio
- - Tomás Fernandez
- - Jimena Soraya, Torreani Cáceres
+Universidad Nacional del Nordeste
+Facultad de Ciencias Exactas y Naturales y Agrimensura
 
-**Año**: 2024
+
+
+Asignatura: Bases de Datos I (FaCENA-UNNE)
+Profesor: Darío Oscar Villegas
+
+
+
+Proyecto de Estudio: 
+Ecommerce: Plantas y Accesorios de Jardinería
+
+
+Autores:
+Gabriél Román
+Nicolás Verdicchio
+Tomás Fernandez
+Jimena Soraya, Torreani Cáceres
+
+
+
+
+Año: 2024
+ÍNDICE O SUMARIO:
+
+PORTADA/PRESENTACIÓN	1
+ÍNDICE O SUMARIO:	2
+CAPÍTULO I: INTRODUCCIÓN	3
+   Tema	3
+    Definición o Planteamiento del Problema	3
+    Objetivo del Trabajo Práctico:	3
+    Objetivos Generales	3
+    Objetivos Específicos	3
+CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL	4
+CAPÍTULO III: METODOLOGÍA SEGUIDA	4
+CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS	5
+CAPÍTULO V: CONCLUSIONES	6
+BIBLIOGRAFÍA DE CONSULTA	6
+
+
 
 ## CAPÍTULO I: INTRODUCCIÓN
 
