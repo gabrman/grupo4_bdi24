@@ -132,9 +132,7 @@ Con este sistema, se optimiza tanto la operación interna de la tienda, lo que r
 
 ### Desarrollo TEMA 1 "----"
 
-Fusce auctor finibus lectus, in aliquam orci fermentum id. Fusce sagittis lacus ante, et sodales eros porta interdum. Donec sed lacus et eros condimentum posuere. 
-
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_1](script/tema01_nombre_tema)
+> Acceder a la siguiente carpeta para la descripción completa del tema /script/script_ddl_proyecto.sql
 
 ### Desarrollo TEMA 2 "----"
 
