@@ -110,7 +110,9 @@ PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
 
 ### Diccionario de datos
 
-Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
+Acceso al documento [PDF](Docs/diccionario_datos_tiendaPlantas.pdf) del diccionario de datos.
+
+https://github.com/gabrman/grupo4_comision2_bdi24/blob/main/Docs/diccionario_datos_tiendaPlantas.pdf
 
 
 ### Desarrollo TEMA 1 "----"
