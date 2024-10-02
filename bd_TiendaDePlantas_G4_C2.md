@@ -119,7 +119,7 @@ Con este sistema, se optimiza tanto la operación interna de la tienda, lo que r
 
 ### Desarrollo TEMA 1 "----"
 
-> Acceder a la siguiente carpeta para la descripción completa del tema /script/script_ddl_proyecto.sql
+> Acceder a la siguiente carpeta para la descripción completa del tema blob/main/script/script_ddl_proyecto.sql
 
 ### Desarrollo TEMA 2 "----"
 
