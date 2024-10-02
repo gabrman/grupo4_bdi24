@@ -112,6 +112,21 @@ PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
 ### Diccionario de datos
 
 Acceso al documento [PDF](Docs/diccionario_datos_tiendaPlantas.pdf) del diccionario de datos.
+El diseño de estas tablas garantiza que cada proceso en la tienda sea registrado de manera precisa, evitando duplicidades y asegurando la integridad de los datos.
+
+
+
+3. Análisis de Resultados
+A partir de este diseño, el sistema permitirá:
+Un control eficiente del inventario, con alertas cuando el stock de ciertos productos se esté agotando.
+Un registro completo de los clientes, lo que permitirá personalizar las ventas y mejorar la gestión de la relación con los clientes, aumentando las oportunidades de fidelización.
+Un seguimiento detallado de las ventas, permitiendo identificar patrones de compra y ajustar la oferta de productos en función de las demandas de los clientes.
+Con este sistema, se optimiza tanto la operación interna de la tienda, lo que resulta en una atención  más ágil, mejor disponibilidad de productos y un servicio de mayor calidad. Estos beneficios impactan directamente en la satisfacción del cliente, ofreciéndole una experiencia más eficiente y agradable.
+
+
+
+
+
 
 
 
