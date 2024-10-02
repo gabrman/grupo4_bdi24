@@ -71,11 +71,13 @@ BIBLIOGRAFÍA DE CONSULTA	6
 CAPÍTULO I: INTRODUCCIÓN
 
 a.Tema:
-Título: "Desarrollo de una Tienda Online para la Venta de Plantas y Accesorios de Jardinería"
-En este trabajo se investigará el diseño y la implementación de una tienda online dedicada a la venta de plantas, productos de jardinería y accesorios. El objetivo es crear una plataforma que facilite la compra de estos productos para los usuarios, garantizando una experiencia de usuario amigable y eficiente.
+Este trabajo práctico se enfoca en el diseño e implementación de una base de datos para la gestión de una tienda de plantas que ofrece productos como plantas, macetas y herramientas o accesorios de jardinería. El propósito es resolver problemas relacionados con la administración de la tienda, como el control del inventario, la gestión de ventas y el seguimiento de clientes. El sistema que se desarrollará está orientado a optimizar estos procesos, centralizando toda la información clave en una base de datos relacional.
 
 b. Definición o Planteamiento del Problema:
-En la actualidad, el interés por las plantas ha aumentado debido a la conciencia ambiental y los beneficios del contacto con la naturaleza. Sin embargo, muchas personas no tienen acceso fácil a viveros o tiendas de jardinería locales. Además, la falta de plataformas especializadas en la venta de plantas dificulta la compra en línea de estos productos. Por tanto, el problema radica en cómo desarrollar una tienda online que no solo permita la compra de plantas de manera eficiente, sino que también ofrezca una experiencia satisfactoria para el usuario.
+Uno de los principales desafíos de un dueño y administrador de una tienda de plantas es mantener un control preciso sobre los productos, el inventario y las ventas. La falta de un sistema de gestión adecuado para el manejo de ventas y stock ha llevado a la necesidad de mejorar la administración de los datos y optimizar la gestión del negocio.
+
+El problema central se define como la necesidad de implementar un sistema automatizado que facilite la gestión del inventario, manteniéndolo actualizado, y permita administrar de manera eficiente el catálogo de productos y el seguimiento de clientes para, en efecto, ofrecer un manejo consistente de los datos. Lo que nos lleva a una serie de interrogantes a los que buscaremos dar respuesta en la base de datos: ¿Qué mecanismos pueden implementarse para alertar al administrador cuando el stock de un producto en específico es insuficiente o está agotado?, ¿cómo se puede garantizar la consistencia e integridad de los datos en el sistema, evitando duplicación y/o pérdida de información? y ¿qué consultas y reportes pueden generarse para facilitar la gestión diaria del inventario, las ventas y los clientes? Estas preguntas nos permitirán una mejor toma de decisiones y, en consecuencia, favorecerán las operaciones de la empresa. 
+ 
 
 c. Objetivo del Trabajo Práctico:
 El propósito de este trabajo es diseñar y desarrollar una tienda online que ofrezca a los usuarios la posibilidad de adquirir plantas y accesorios de jardinería de manera fácil, rápida y confiable.
