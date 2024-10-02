@@ -87,6 +87,8 @@ El diagrama muestra cómo las distintas áreas del negocio interactúan entre s�
 Otra entidad clave es la tabla de clientes, que almacena información detallada de los compradores, permitiendo realizar un seguimiento de las compras y mejorar la experiencia del cliente mediante una atención personalizada.
 En la tabla ventas conectan estos elementos, registrando cada transacción realizada. Esto no solo ayuda a llevar un control del flujo de ingresos, sino que también permite analizar el comportamiento de compra y planificar el inventario de manera más precisa.
 
+Diagrama relacional
+
 ![image](https://github.com/user-attachments/assets/2eb35ed2-1a16-4bf9-970a-93524f152c3f)
 
 
@@ -105,8 +107,6 @@ ORDER  ||--|{  ORDER-ITEM  : includes
 PRODUCT-CATEGORY  ||--|{  PRODUCT  : contains
 PRODUCT  ||--o{  ORDER-ITEM  : "ordered in"
 ```
-### Diagrama relacional
-![diagrama_relacional](https://github.com/dovillegas/basesdatos_proyecto_estudio/blob/main/doc/image_relational.png)
 
 ### Diccionario de datos
 
