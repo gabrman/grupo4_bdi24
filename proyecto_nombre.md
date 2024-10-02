@@ -16,10 +16,10 @@ Ecommerce: Plantas y Accesorios de Jardinería
 
 
 Autores:
-Gabriél Román,
-Nicolás Verdicchio,
-Tomás Fernandez,
-Jimena Soraya, Torreani Cáceres
+Fernandez, Juan Tomás.                            LU: 56305
+Román, Gabriel Esteban.                           LU: 52658
+Torreani Cáceres, Jimena Soraya.                  LU: 48353
+Verdichio, Nicolás Mauricio.                      LU: 56570 
 
 
 
@@ -80,18 +80,14 @@ El problema central se define como la necesidad de implementar un sistema automa
  
 
 c. Objetivo del Trabajo Práctico:
-El propósito de este trabajo es diseñar y desarrollar una tienda online que ofrezca a los usuarios la posibilidad de adquirir plantas y accesorios de jardinería de manera fácil, rápida y confiable.
-
-i. Objetivos Generales:
-Desarrollar una plataforma web que permita la administracion de ventas de plantas y productos de jardinería, ofreciendo a los usuarios una experiencia de compra satisfactoria.
-
+i. Objetivo General:
+Desarrollar una base de datos que resuelva las dificultades de administración de la tienda de plantas, integrando de manera eficiente la gestión de productos, ventas y clientes, garantizando la consistencia y disponibilidad de la información.
 ii. Objetivos Específicos:
+Diseñar un modelo de datos que refleje de manera clara y precisa las operaciones diarias de la tienda.
+Implementar mecanismos de control en la base de datos para asegurar la integridad y consistencia de la información.
+Desarrollar un sistema que permita realizar consultas y reportes de manera rápida, facilitando la toma de decisiones basada en datos.
+Optimizar la gestión de ventas, inventario y clientes mediante la implementación de funcionalidades de registro y actualización de información.
 
-Crear un catálogo de productos con información detallada sobre cada planta y accesorio.
-Implementar un sistema de carrito de compras y pago en línea.
-Desarrollar funcionalidades que ayuden a los usuarios a elegir las plantas más adecuadas según sus necesidades.
-Proporcionar contenido educativo sobre el cuidado de las plantas a través de la plataforma.
-Garantizar la seguridad y privacidad de los datos personales y financieros de los usuarios.
 
 CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
 
