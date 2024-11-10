@@ -76,6 +76,16 @@ Logística de Envíos: No se incluirá la gestión de envíos o el seguimiento d
 Promociones y Descuentos: No se incluirán funcionalidades relacionadas con la gestión de promociones, cupones de descuento o programas de fidelización de clientes.
 Estos aspectos podrían tratarse en fases posteriores, en caso de que el negocio crezca y requiera un sistema más avanzado, como la implementación de una tienda online o la integración con proveedores.
 
+CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
+En esta investigación exploramos temas clave como el manejo de permisos a nivel de usuarios en bases de datos, procedimientos y funciones almacenadas, optimización de consultas mediante índices, y el uso de vistas y vistas indexadas. El objetivo es no solo definir y caracterizar cada uno de estos conceptos, sino también comprender sus aplicaciones en el mundo real, lo que nos permite conectar la teoría con la práctica para lograr una comprensión más profunda.
+
+Tema: manejo de permisos a nivel de usuario
+
+Tema: procedimientos y funciones almacenadas
+
+Tema: optimización de consultas mediante índices
+
+Tema: vistas y vistas indexadas
 
 CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
