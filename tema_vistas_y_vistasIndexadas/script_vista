@@ -1,1 +1,77 @@
+-- ------------------------------------------
+--   Tema: Vistas y vistas indexadas
+-- ------------------------------------------
+USE BASEDEDATOS_PLANTAS;
+GO
+--1) Crear una vista sobre alguna tabla que solo muestre algunos campos de la misma.
+SELECT * FROM clientes
+GO
+--Información que se puede considerar sensible: email, telefono, dirección, dni.
 
+CREATE VIEW cliente_vista --creamos una vista llamada cliente_vista
+AS 
+SELECT id_cliente, nombre_cliente, apellido_cliente --seleccionamos solo las columnas id_cliente, nombre_cliente y apellido_cliente
+FROM clientes; --la vista toma los datos de la tabla clientes
+GO
+--Para utilizar la vista
+SELECT * FROM cliente_vista;
+GO
+/*
+ Esta vista permite acceder únicamente a los campos id_cliente, nombre_cliente y apellido_cliente, protegiendo así los datos sensibles
+ del resto de las columnas.
+*/
+/*SUPONGO QUE POR DATOS SENSIBLES A ESAS COLUMNAS SE REFIERE POR SER UNICAS?? */
+--2) Realizar insert de un lote de datos sobre la vista recién creada. Verificar el resultado en la tabla.
+INSERT INTO cliente_vista (nombre_cliente, apellido_cliente)
+VALUES ('Gabriel', 'Román');
+
+--Mensaje: Mens. 515, Nivel 16, Estado 2, Línea 23
+--No se puede insertar el valor NULL en la columna 'dni', tabla 'plantas_bd.dbo.clientes'. La columna no admite valores NULL. Error de INSERT.
+
+/*No es posible insertar un registro a través de una vista si esta no incluye todas las columnas requeridas. Entra en conflicto con los campos
+obligatorios y claves foráneas.*/
+
+/*TIENE que estar todos los campos de la tabla para poder insertar registros a la tabla */
+
+--3) Realizar update sobre algunos de los registros creados y volver a verificar el resultado en la tabla.
+SELECT * FROM clientes --id_cliente 1 nombre_cliente Tod
+UPDATE cliente_vista SET nombre_cliente = 'Tody'
+WHERE id_cliente = 1;
+
+--verificamos el resultado:
+SELECT * FROM clientes WHERE id_cliente = 1;
+--Salida esperada: 
+/*
+id_cliente	nombre_cliente	apellido_cliente	email	telefono	direccion	dni
+1	Tody	Teal	tteal0@mac.com	2325416309	9 Annamark Drive	2311739468
+*/
+                   --BY NICO
+
+--4) Borrar todos los registros insertados a través de la vista.
+DELETE FROM cliente_vista WHERE id_cliente = clientes;
+
+--verificar
+SELECT * FROM cliente_vista WHERE id_cliente = clientes;
+
+--5) Crear un índice sobre alguna de las columnas sobre la vista  recién creada.
+
+--la vista debe cumplir ciertos requisitos, como ser una vista indexada. 
+--Para agregar un índice, primero debes recrear la vista usando la opción WITH SCHEMABINDING
+CREATE VIEW cliente_vista
+WITH SCHEMABINDING -- es un esquema fijo ,es una opción en SQL Server que "vincula" una vista o una función definida
+                   -- por el usuario al esquema de las tablas subyacentes
+						--evitas que las tablas incluidas en la
+						--vista o función sean modificadas de manera que puedan romper la estructura de la vista
+AS
+SELECT id_cliente, nombre_cliente, apellido_cliente, email
+FROM dbo.clientes;
+
+--Ahora si podemos crear un índice único agrupado en la vista.
+--Esto convertirá la vista en una vista indexada.
+CREATE UNIQUE CLUSTERED INDEX idx_cliente_vista_id_cliente
+ON vista_clientes (id_cliente);
+
+
+
+
+--6) Expresar las conclusiones en base a las pruebas realizadas.
