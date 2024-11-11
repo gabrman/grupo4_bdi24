@@ -77,11 +77,37 @@ Promociones y Descuentos: No se incluirán funcionalidades relacionadas con la g
 Estos aspectos podrían tratarse en fases posteriores, en caso de que el negocio crezca y requiera un sistema más avanzado, como la implementación de una tienda online o la integración con proveedores.
 
 CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
-En esta investigación exploramos temas clave como el manejo de permisos a nivel de usuarios en bases de datos, procedimientos y funciones almacenadas, optimización de consultas mediante índices, y el uso de vistas y vistas indexadas. El objetivo es no solo definir y caracterizar cada uno de estos conceptos, sino también comprender sus aplicaciones en el mundo real, lo que nos permite conectar la teoría con la práctica para lograr una comprensión más profunda.
+El desarrollo de este proyecto está destinado a generar conocimientos y habilidades en cuanto a la implementación de temas técnicos de bases de datos, muy importantes en esta área de investigación y de gran utilidad.. 
+Los temas técnicos planteados están relacionados a la seguridad de los datos en una base de datos, la configuración y restricción de perfiles de distintos usuarios que acceden a las bases de datos, la optimización, eficiencia y rendimiento con la que puede llegar a trabajar el motor de bases de datos en momentos de ejecución de consultas, la creación de procedimientos almacenados definidos por el usuarios o por el sistema y las funciones almacenadas, y..(lo que refiere al tema vistas y vistas indexadas) , etc..
+A continuación daremos una explicación teórica concisa y lo más concreta posible para cada uno de estos temas técnicos.:
 
-Tema: manejo de permisos a nivel de usuario
+Tema: Manejo de permisos a nivel de usuarios de base de datos.
 
-Tema: procedimientos y funciones almacenadas
+Tema: Procedimientos y funciones almacenadas.
+Los procedimientos y funciones almacenadas son bloques de código SQL pre compilados y almacenados directamente en una base de datos. Esto significa que en lugar de enviar múltiples instrucciones SQL individuales a la base de datos cada vez que se necesita realizar una operación, se puede llamar a un único procedimiento o función que contiene todas las instrucciones necesarias.
+Un procedimiento almacenado de SQL Server es un grupo de una o varias instrucciones Transact-SQL . Los procedimientos pueden:
+Aceptar parámetros de entrada y devolver varios valores en forma de parámetros de salida al programa que realiza la llamada.
+Transacciones: Los procedimientos almacenados pueden agrupar múltiples operaciones en una transacción, asegurando la integridad de los datos.
+Devolver un valor de estado a un programa que realiza una llamada para indicar si la operación se ha realizado correctamente o se han producido errores, y el motivo de estos.
+Funciones Almacenadas
+Una función almacenada es similar a un procedimiento, pero con algunas diferencias clave:
+Retorno de un valor: Una función siempre devuelve un único valor. Este valor puede ser de cualquier tipo de datos soportado por SQL Server.
+Uso en expresiones: Las funciones pueden utilizarse directamente en expresiones SQL, mientras que los procedimientos requieren una instrucción EXECUTE.
+Sin instrucciones de flujo de control: Las funciones están más restringidas en cuanto a las instrucciones que pueden contener. Por ejemplo, no pueden ejecutar instrucciones como INSERT, UPDATE o DELETE directamente.
+Ventajas de usar Procedimientos y Funciones almacenadas
+Tráfico de red reducido: Los comandos de un procedimiento se ejecutan en un único lote de código. Esto puede reducir significativamente el tráfico de red entre el servidor y el cliente porque únicamente se envía a través de la red la llamada que va a ejecutar el procedimiento. Sin la encapsulación de código que proporciona un procedimiento, cada una de las líneas de código tendría que enviarse a través de la red.
+Mayor seguridad: Varios usuarios y programas cliente pueden realizar operaciones en los objetos de base de datos subyacentes a través de un procedimiento, aunque los usuarios y los programas no tengan permisos directos sobre esos objetos subyacentes. El procedimiento controla qué procesos y actividades se llevan a cabo y protege los objetos de base de datos subyacentes. Esto elimina la necesidad de conceder permisos en cada nivel de objetos y simplifica los niveles de seguridad.
+La cláusula EXECUTE AS puede especificarse en la instrucción CREATE PROCEDURE para habilitar la suplantación de otro usuario o para permitir que los usuarios o las aplicaciones puedan realizar ciertas actividades en la base de datos sin necesidad de contar con permisos directos sobre los objetos y comandos subyacentes. 
+Cuando una aplicación llama a un procedimiento a través de la red, solo está visible la llamada que va a ejecutar el procedimiento. Por tanto, los usuarios malintencionados no pueden ver los nombres de los objetos de la base de datos y las tablas, insertar sus propias instrucciones Transact-SQL ni buscar datos críticos.
+El uso de parámetros de procedimientos ayuda a protegerse contra ataques por inyección de código SQL. Dado que la entrada de parámetros se trata como un valor literal y no como código ejecutable, resulta más difícil para un atacante insertar un comando en las instrucciones Transact-SQL del procedimiento y poner en peligro la seguridad.
+Reutilización de Código: El código de cualquier operación de base de datos redundante resulta un candidato perfecto para la encapsulación de procedimientos. De este modo, se elimina la necesidad de escribir de nuevo el mismo código, se reducen las inconsistencias de código y se permite que cualquier usuario o aplicación que cuente con los permisos necesarios pueda acceder al código y ejecutarlo.
+Mantenimiento más sencillo: Al centralizar la lógica de la base de datos, facilitan el mantenimiento y las actualizaciones.
+Rendimiento mejorado: De forma predeterminada, un procedimiento se compila la primera vez que se ejecuta y crea un plan de ejecución que vuelve a usarse en posteriores ejecuciones.
+Al estar precompilados, se ejecutan más rápido que las instrucciones SQL individuales.
+
+Tipos de Procedimientos almacenados
+Procedimientos Almacenados Definidos por el Usuario: Un procedimiento definido por el usuario se puede crear en una base de datos definida por el usuario o en todas las bases de datos del sistema excepto en la base de datos Resource. El procedimiento se puede desarrollar en Transact-SQL o como referencia a un método de Common Language Runtime (CLR) de Microsoft .NET Framework.
+Procedimientos Almacenados del Sistema: Los procedimientos del sistema se incluyen con el motor de base de datos. Están almacenados físicamente en la base de datos interna y oculta Resource y se muestran de forma lógica en el esquema sys de cada base de datos definida por el sistema y por el usuario. Además, la base de datos msdb también contiene procedimientos almacenados del sistema en el esquema dbo que se usan para programar alertas y trabajos. Dado que los procedimientos del sistema empiezan con el prefijo sp_, le recomendamos que no use este prefijo cuando asigne un nombre a los procedimientos definidos por el usuario.
 
 Tema: optimización de consultas mediante índices
 
