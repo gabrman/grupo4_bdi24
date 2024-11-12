@@ -109,7 +109,26 @@ Tipos de Procedimientos almacenados
 Procedimientos Almacenados Definidos por el Usuario: Un procedimiento definido por el usuario se puede crear en una base de datos definida por el usuario o en todas las bases de datos del sistema excepto en la base de datos Resource. El procedimiento se puede desarrollar en Transact-SQL o como referencia a un método de Common Language Runtime (CLR) de Microsoft .NET Framework.
 Procedimientos Almacenados del Sistema: Los procedimientos del sistema se incluyen con el motor de base de datos. Están almacenados físicamente en la base de datos interna y oculta Resource y se muestran de forma lógica en el esquema sys de cada base de datos definida por el sistema y por el usuario. Además, la base de datos msdb también contiene procedimientos almacenados del sistema en el esquema dbo que se usan para programar alertas y trabajos. Dado que los procedimientos del sistema empiezan con el prefijo sp_, le recomendamos que no use este prefijo cuando asigne un nombre a los procedimientos definidos por el usuario.
 
-Tema: optimización de consultas mediante índices
+Tema: optimización de consultas mediante índices  
+                                       INDICES
+Los Índices son objetos que nos permiten el ordenamiento de los datos de las tablas, son objetos físicos por lo tanto ocupan espacio en el disco menos que una tabla, porque no almacenan todos los datos de la tabla, sino únicamente referencias a ciertos datos claves, que ocupamos para dicha tabla.
+
+Es una copia de todas las filas, pero solamente de algunas columnas de la tabla sobre la cual definimos el índice.
+
+Los Índices se dividen en dos tipos: 
+Los Agrupados (Clúster) y los No Agrupados.
+
+INDICES AGRUPADOS: Hace una búsqueda directa. 
+Es decir, los nodos hojas contienen las páginas de datos de la tabla.
+Un índice agrupado es similar a una guía telefónica, los registros con el mismo valor de campo se agrupan juntos.
+
+INDICES NO AGRUPADOS 
+Tiene la misma estructura, pero la última fila de nodos no contiene los datos de la tabla sino contiene punteros que nos deriva a otro espacio físico donde están los datos, los punteros indican el lugar de almacenamiento de los elementos indizados en la tabla.
+Es decir, los datos se almacenan en un lugar diferente al del índice.
+Llevándolo a el mismo ejemplo de la guía seria buscar primero por el índice y después acceden a la hoja donde está buscando el correspondiente dato.
+
+
+
 
 Tema: vistas y vistas indexadas
 
