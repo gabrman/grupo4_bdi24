@@ -4,7 +4,7 @@ GO
 -- TEMA: Procedimientos y Funciones Almacenadas
 -- -----------------------------------------------
 /* 
- Creamos un procedimiento almacenado llamado ImportarClientesDesdeCSV qué inserta un lote de datos provenientes 
+ Creamos un procedimiento almacenado llamado ImportarClientesDesdeCSV quÃ© inserta un lote de datos provenientes 
  de un archivo CSV en la tabla clientes 
 */
 CREATE PROCEDURE ImportarClientesDesdeCSV (
@@ -18,19 +18,19 @@ BEGIN
 		FROM 'C:\Users\Usuario\Desktop\cli\clientes_prueba.csv'
 		WITH (              
                    
-				FIRSTROW = 2,          -- Indica que se debe iniciar la importación desde la segunda fila para omitir el encabezado
+				FIRSTROW = 2,          -- Indica que se debe iniciar la importaciÃ³n desde la segunda fila para omitir el encabezado
 				FIELDQUOTE = '"',      -- (No es necesario)
-				FIELDTERMINATOR = ',', -- Define que las columnas en el archivo CSV están separadas por comas 
-				ROWTERMINATOR = '0x0a' -- Especifica el terminador de filas; '0x0a' corresponde a un salto de línea (LF)
+				FIELDTERMINATOR = ',', -- Define que las columnas en el archivo CSV estÃ¡n separadas por comas 
+				ROWTERMINATOR = '0x0a' -- Especifica el terminador de filas; '0x0a' corresponde a un salto de lÃ­nea (LF)
 			);
-        -- Si la importación se realiza con éxito, se imprime un mensaje de confirmación
-        PRINT 'Importación exitosa.';
+        -- Si la importaciÃ³n se realiza con Ã©xito, se imprime un mensaje de confirmaciÃ³n
+        PRINT 'ImportaciÃ³n exitosa.';
     END TRY
     BEGIN CATCH
         -- Bloque de manejo de errores
         -- Captura cualquier error que ocurra en el bloque TRY
         DECLARE @ErrorMessage NVARCHAR(4000) = ERROR_MESSAGE();
-        PRINT 'Error durante la importación: ' + @ErrorMessage;
+        PRINT 'Error durante la importaciÃ³n: ' + @ErrorMessage;
     END CATCH;
 END;
 GO
@@ -42,13 +42,13 @@ GO
 -----------------------------------------------------------
 --     Procedimiento almacenado para insertar productos
 -----------------------------------------------------------
--- Este procedimiento recibe todos los valores necesarios como parámetros e inserta un nuevo registro en la tabla productos.
+-- Este procedimiento recibe todos los valores necesarios como parÃ¡metros e inserta un nuevo registro en la tabla productos.
 CREATE PROCEDURE InsertarProducto
 			@nombre_producto	 varchar(100)
            ,@precio	 float
            ,@stock	 int
            ,@descripcion	 varchar(250)
-           ,@tamaño	 varchar(100)
+           ,@tamaÃ±o	 varchar(100)
            ,@color	 varchar(50)
            ,@materiales	 varchar(100)
            ,@marca	 varchar(100)
@@ -62,7 +62,7 @@ BEGIN
 				   ,[precio]
 				   ,[stock]
 				   ,[descripcion]
-				   ,[tamaño]
+				   ,[tamaÃ±o]
 				   ,[color]
 				   ,[materiales]
 				   ,[marca]
@@ -72,12 +72,12 @@ BEGIN
 				   ,@precio
 				   ,@stock
 				   ,@descripcion
-				   ,@tamaño
+				   ,@tamaÃ±o
 				   ,@color
 				   ,@materiales
 				   ,@marca
 				   ,@id_tipo_producto)
-		   	PRINT 'Producto insertado con éxito';
+		   	PRINT 'Producto insertado con Ã©xito';
     END TRY
     BEGIN CATCH
         PRINT 'Error al insertar el producto: ' + ERROR_MESSAGE();
@@ -85,12 +85,12 @@ BEGIN
 END
 GO
 
---       Ejecución PS InsertarProducto
+--       EjecuciÃ³n PS InsertarProducto
 ------------------------------------------------
---pasamos los valores para cada parámetro.
+--pasamos los valores para cada parÃ¡metro.
 EXEC InsertarProducto 
-    @nombre_producto = 'Maceta de cerámica negra', @precio = 250.00, @stock = 20, @descripcion = 'Maceta pequeña de cerámica para interior',@tamaño = 'Pequeño', 
-    @color = 'Negro', @materiales = 'Cerámica', @marca = 'CeramiArt', @id_tipo_producto = 3;
+    @nombre_producto = 'Maceta de cerÃ¡mica negra', @precio = 250.00, @stock = 20, @descripcion = 'Maceta pequeÃ±a de cerÃ¡mica para interior',@tamaÃ±o = 'PequeÃ±o', 
+    @color = 'Negro', @materiales = 'CerÃ¡mica', @marca = 'CeramiArt', @id_tipo_producto = 3;
 GO
 ---------------------------------------------------------------------------
 -- Procedimiento almacenado para modificar registros de la tabla producto
@@ -101,7 +101,7 @@ CREATE PROCEDURE ActualizarProducto
            ,@precio	 float = NULL
            ,@stock	 int = NULL
            ,@descripcion	 varchar(250) = NULL
-           ,@tamaño	 varchar(100) = NULL
+           ,@tamaÃ±o	 varchar(100) = NULL
            ,@color	 varchar(50) = NULL
            ,@materiales	 varchar(100) = NULL
            ,@marca	 varchar(100) = NULL
@@ -111,18 +111,18 @@ BEGIN
       SET NOCOUNT ON;
 	    BEGIN TRY
 		    UPDATE [dbo].[productos]
-			    SET -- La función COALESCE devuelve el primer valor no NULL de una lista de valores. 
+			    SET -- La funciÃ³n COALESCE devuelve el primer valor no NULL de una lista de valores. 
 				    [nombre_producto] = COALESCE(@nombre_producto, [nombre_producto])
 				   ,[precio] = COALESCE(@precio, [precio])
 				   ,[stock] = COALESCE(@stock, [stock])
 				   ,[descripcion] =COALESCE(@descripcion,[descripcion])
-				   ,[tamaño] = COALESCE(@tamaño, [tamaño])
+				   ,[tamaÃ±o] = COALESCE(@tamaÃ±o, [tamaÃ±o])
 				   ,[color] = COALESCE(@color, [color])
 				   ,[materiales] = COALESCE(@materiales,[materiales])
 				   ,[marca] = COALESCE(@marca, [marca])
 				   ,[id_tipo_producto] = COALESCE(@id_tipo_producto,[id_tipo_producto])
 				   WHERE id_producto = @id_producto;
-		   	PRINT 'Producto actualizado con éxito';
+		   	PRINT 'Producto actualizado con Ã©xito';
     END TRY
     BEGIN CATCH
         PRINT 'Error al actualizar el producto: ' + ERROR_MESSAGE();
@@ -130,7 +130,7 @@ BEGIN
 END
 GO
 
---        Ejecución PS ActualizarProducto
+--        EjecuciÃ³n PS ActualizarProducto
 ---------------------------------------------------
 EXEC ActualizarProducto 
     @id_producto = 1, 
@@ -149,7 +149,7 @@ BEGIN
         DELETE FROM productos
         WHERE id_producto = @id_producto;
 
-        PRINT 'Producto se ha eliminado con éxito';
+        PRINT 'Producto se ha eliminado con Ã©xito';
     END TRY
     BEGIN CATCH
         PRINT 'Error al eliminar el producto: ' + ERROR_MESSAGE();
@@ -157,13 +157,15 @@ BEGIN
 END;
 GO
 
---       Ejecución PS EliminarProducto
+--       EjecuciÃ³n PS EliminarProducto
 ------------------------------------------------
 EXEC EliminarProducto @id_producto = 1;
 GO
 
-
---Función para Calcular el Total de Ventas de un Cliente
+-- ------------------------------------
+--		  Funciones Almacenadas
+---------------------------------------
+--FunciÃ³n para Calcular el Total de pedidos de un Cliente
 CREATE FUNCTION CalcularTotalPedidos (@id_cliente INT)
 RETURNS FLOAT
 AS
@@ -177,9 +179,35 @@ BEGIN
 END;
 GO
 
+--FunciÃ³n para Obtener el Nombre Completo de un Cliente
+CREATE FUNCTION ObtenerNombreCompleto (@nombre_cliente VARCHAR(100), @apellido_cliente VARCHAR(100))
+RETURNS VARCHAR(200)
+AS
+BEGIN
+    RETURN @nombre_cliente + ' ' + @apellido_cliente;
+END;
+GO
 
+SELECT dbo.ObtenerNombreCompleto('Carlos', 'GÃ³mez') AS NombreCompleto;
+GO
+--para mostrar el nombre completo del cliente en informes o interfaces donde se requiere el nombre completo en una sola columna.
 
+--FunciÃ³n para Obtener el Estado de Stock de un Producto
+CREATE FUNCTION VerificarStock (@id_producto INT, @cantidad INT)
+RETURNS BIT
+AS
+BEGIN
+    DECLARE @stock_actual INT;
+    SELECT @stock_actual = stock FROM productos WHERE id_producto = @id_producto;
 
+    IF @stock_actual >= @cantidad
+        RETURN 1;  -- Hay suficiente stock
+    ELSE
+        RETURN 0;  -- No hay suficiente stock
+END;
+GO
+
+SELECT dbo.VerificarStock(1, 5) AS StockDisponible;  -- Verifica si hay al menos 5 unidades disponibles del producto con id 1
 
 
 --plus--------------------------------------------
@@ -216,7 +244,7 @@ BEGIN
 			   ,@direccion
 			   ,@dni)
 
-		PRINT 'Cliente insertado con éxito';
+		PRINT 'Cliente insertado con Ã©xito';
     END TRY
     BEGIN CATCH
         PRINT 'Error al insertar el cliente: ' + ERROR_MESSAGE();
@@ -246,7 +274,7 @@ BEGIN
             dni = @dni
         WHERE id_cliente = @id_cliente;
 
-        PRINT 'Cliente actualizado con éxito';
+        PRINT 'Cliente actualizado con Ã©xito';
     END TRY
     BEGIN CATCH
         PRINT 'Error al actualizar el cliente: ' + ERROR_MESSAGE();
