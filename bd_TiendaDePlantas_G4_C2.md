@@ -120,7 +120,7 @@ Procedimientos Almacenados Definidos por el Usuario: Un procedimiento definido p
 Procedimientos Almacenados del Sistema: Los procedimientos del sistema se incluyen con el motor de base de datos. Están almacenados físicamente en la base de datos interna y oculta Resource y se muestran de forma lógica en el esquema sys de cada base de datos definida por el sistema y por el usuario. Además, la base de datos msdb también contiene procedimientos almacenados del sistema en el esquema dbo que se usan para programar alertas y trabajos. Dado que los procedimientos del sistema empiezan con el prefijo sp_, le recomendamos que no use este prefijo cuando asigne un nombre a los procedimientos definidos por el usuario.
 
 Tema: optimización de consultas mediante índices  
-                                       INDICES
+INDICES
 Los Índices son objetos que nos permiten el ordenamiento de los datos de las tablas, son objetos físicos por lo tanto ocupan espacio en el disco menos que una tabla, porque no almacenan todos los datos de la tabla, sino únicamente referencias a ciertos datos claves, que ocupamos para dicha tabla.
 
 Es una copia de todas las filas, pero solamente de algunas columnas de la tabla sobre la cual definimos el índice.
@@ -128,8 +128,7 @@ Es una copia de todas las filas, pero solamente de algunas columnas de la tabla 
 Los Índices se dividen en dos tipos: 
 Los Agrupados (Clúster) y los No Agrupados.
 
-INDICES AGRUPADOS: Hace una búsqueda directa. 
-Es decir, los nodos hojas contienen las páginas de datos de la tabla.
+INDICES AGRUPADOS: Hacen una búsqueda directa, es decir, los nodos hojas contienen las páginas de datos de la tabla.
 Un índice agrupado es similar a una guía telefónica, los registros con el mismo valor de campo se agrupan juntos.
 
 INDICES NO AGRUPADOS 
@@ -137,10 +136,19 @@ Tiene la misma estructura, pero la última fila de nodos no contiene los datos d
 Es decir, los datos se almacenan en un lugar diferente al del índice.
 Llevándolo a el mismo ejemplo de la guía seria buscar primero por el índice y después acceden a la hoja donde está buscando el correspondiente dato.
 
-
-
-
 Tema: vistas y vistas indexadas
+
+Las vistas son tablas virtuales que permiten simplificar las consultas. Estas representan una porción de los datos almacenados en una base de datos. Decimos que son virtuales dado que no contienen datos reales, su contenido está definido por consultas que muestran una selección de columnas y filas que pueden provenir de una o varias tablas, o incluso de otras vistas dentro de la base de datos o de bases de datos externas.  Las vistas se producen de forma dinámica cuando se hace referencia a una de ellas. [refe]
+
+Las vistas son especialmente útiles porque permiten personalizar y simplificar la percepción de la base de datos para cada usuario. Pueden emplearse como mecanismos de seguridad, mantener la compatibilidad con versiones anteriores, y optimizar el rendimiento al organizar grandes volúmenes de datos, por ejemplo, mediante el particionamiento o al ofrecer datos preseleccionados y estructurados para tareas específicas.
+
+Entre sus ventajas, las vistas permiten:
+
+Evitar esfuerzo duplicado al escribir una consulta una vez y acceder a los resultados cuando sea necesario.
+Reducir la complejidad para uno o para otros usuarios de la base de datos mostrando solo las columnas relevantes para sus tareas. 
+Proporcionar seguridad al limitar el acceso solo a ciertas columnas en una tabla ocultando datos sensibles que no deben estar disponibles para todos los usuarios.
+
+Por otro lado, una vista indexada (o materializada) es una vista cuya definición ha sido calculada, donde los datos resultantes son almacenados físicamente como una tabla. Las vistas indexadas mejoran en gran medida el rendimiento de ciertos tipos de consultas, ya que tienen un índice asociado que acelera el procesamiento de las consultas. Este índice se crea directamente en la vista y no en las tablas base, ayudando al optimizador de consultas a encontrar los datos que necesita de forma eficiente cuando se consultan a través de la vista.
 
 CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
