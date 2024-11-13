@@ -146,8 +146,8 @@ Proporcionar seguridad al limitar el acceso solo a ciertas columnas en una tabla
 Por otro lado, una vista indexada (o materializada) es una vista cuya definición ha sido calculada, donde los datos resultantes son almacenados físicamente como una tabla. Las vistas indexadas mejoran en gran medida el rendimiento de ciertos tipos de consultas, ya que tienen un índice asociado que acelera el procesamiento de las consultas. Este índice se crea directamente en la vista y no en las tablas base, ayudando al optimizador de consultas a encontrar los datos que necesita de forma eficiente cuando se consultan a través de la vista.
 
 # Diferencias entre vistas y vistas indexadas
+![image](tema_vistas_y_vistasIndexadas/tabla_vistas_vistasindex.jpg)
 
-![image]()
 # CAPÍTULO III: METODOLOGÍA SEGUIDA
 
  # a. Descripción de cómo se realizó el Trabajo Práctico:
@@ -213,22 +213,31 @@ Objetivo: Implementar mecanismos de control en la base de datos para asegurar la
 Roles de usuario y permisos:
 Se definieron roles de usuario con permisos a nivel de usuarios que controlan el acceso a las tablas según el perfil. En las siguientes figuras se observa el procedimiento de creación de inicio de sesión, usuario y asignación de permisos de solo lectura para el usuario ‘tomas_sl’ y de administrador para el usuario ‘nicolas_adm’. 
 ### 
-![image]()
-![image]()
+![image](tema_manejo_de_permisos/img_permisos_usuarios/1_rol_solo_lectura_tomas.jpg)
+###
+![image](tema_manejo_de_permisos/img_permisos_usuarios/2_rol_admn_nicolas.jpg)
+
 Se comprobó el comportamiento de los usuarios al acceder a la base de datos, verificando que los permisos asignados restringen adecuadamente las operaciones.
 Ejecución de la instrucción INSERT sobre la tabla 'clientes' con el usuario con el rol sólo lectura:
-![image]()
+###
+![image](tema_manejo_de_permisos/img_permisos_usuarios/3_insert_usuario_sl.JPG)
+
 Explicación: el usuario "tomas_sl" sólo tiene permisos de lectura y no puede modificar los datos de la tabla al intentar insertar un nuevo registro.
 Ejecución de la consulta SELECT sobre la tabla clientes con el usuario ‘tomas_s’l: 
-![image]()
+###
+![image](tema_manejo_de_permisos/img_permisos_usuarios/4_select_usuario_sl.JPG)
+
 Ejecución de la instrucción INSERT sobre la tabla 'clientes' con el usuario con el rol de administrador:
-![image]()
-Explicación: ya que db_owner es un rol que concede acceso total, los usuarios que pertenecen a este rol no están restringidos en ninguna operación dentro de la base de datos
+###
+![image](tema_manejo_de_permisos/img_permisos_usuarios/5_insert_admin.jpg)
+Explicación: ya que db_owner es un rol que concede acceso total, los usuarios que pertenecen a este rol no están restringidos en ninguna operación dentro de la base de datos.
 
 Implementación de vistas para control de acceso:
 Para limitar el acceso directo a ciertos campos sensibles, se crearon vistas que solo muestren la información necesaria para cada tipo de usuario. En la siguiente figura se muestra un ejemplo de vista creada para exponer los detalles de clientes sin mostrar información sensible del mismo.
-![image]()
-![image]()
+###
+![image](tema_vistas_y_vistasIndexadas/img_vistas/6_create_view.jpg)
+###
+![image](tema_vistas_y_vistasIndexadas/img_vistas/7_select_view.jpg)
 
 # Optimización de consultas:
 Objetivo: Optimizar la gestión de ventas, inventario y clientes mediante la implementación de índices y vistas indexadas.
@@ -236,7 +245,6 @@ Objetivo: Optimizar la gestión de ventas, inventario y clientes mediante la imp
 Análisis de consultas y planes de ejecución:
 Se ejecutaron pruebas con y sin índices para analizar el rendimiento de las consultas clave. El gráfico 3 muestra el plan de ejecución de una consulta de pedidos antes y después de la implementación de un índice.
 Se observó una reducción en el tiempo de respuesta y en el número de lecturas lógicas, lo cual confirma la efectividad de los índices en las columnas de mayor uso.
-
 
 # Desarrollo de procedimientos y funciones almacenadas
 Objetivo: Desarrollar procedimientos almacenados para facilitar la inserción, modificación y eliminación de registros y mejorar la eficiencia en la gestión de datos.
@@ -246,16 +254,6 @@ Se desarrollaron procedimientos almacenados que automatizan la inserción, actua
 
 Funciones de cálculo:
 Se crearon funciones para calcular el monto total de ventas de un cliente, para identificar a los clientes que generan mayores ingresos para el negocio, la cantidad de productos vendidos en un periodo y otros indicadores de rendimiento. En la tabla 3 se presentan los resultados de las funciones aplicadas a un conjunto de datos de prueba.
-
-### Desarrollo TEMA 1 "----"
-
-> Acceder a la siguiente carpeta para la descripción completa del tema (script/script_ddl_proyecto.sql)
-
-### Desarrollo TEMA 2 "----"
-
-Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas a purus arcu. Etiam pellentesque tempor dictum. 
-
-> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
 
 # CAPÍTULO V: CONCLUSIONES 
 
@@ -270,12 +268,21 @@ A través de este trabajo, se logró fortalecer los conocimientos que habíamos 
 
 # VI. BIBLIOGRAFÍA.
 
-Vistas ![link](https://learn.microsoft.com/es-es/sql/relational-databases/views/views?view=sql-server-ver16)
-Procedimientos almacenados (motor de base de datos) ![link](https://learn.microsoft.com/es-es/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver16)
-Roles en el nivel de base de datos ![link](https://learn.microsoft.com/es-es/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver16)
+[Vistas](https://learn.microsoft.com/es-es/sql/relational-databases/views/views?view=sql-server-ver16) 
+
+[Procedimientos almacenados (motor de base de datos)](https://learn.microsoft.com/es-es/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver16)
+
+[Roles en el nivel de base de datos](https://learn.microsoft.com/es-es/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver16)
+
 T. C. y. C. O. Begg, Database Systems: A Practical Approach to Design, Implementation, and Management, Pearson, 2015.
+
 R. E. y. S. B. Navathe, Fundamentals of Database Systems, Pearson, 2016.
+
 G.-M. y. U. Widom, Database Systems The Complete Book, Pearson, 2009.
+
+Alan Beaulieu, Learning SQL Generate, Manipulate, and Retrieve Data, O’Reilly, 2020.
+
+Anthony DeBarros, PRACTICAL SQL A Beginner’s Guide to Storytelling with Data, No Starch Press, 2018.
 
 
 
