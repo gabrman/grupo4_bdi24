@@ -209,21 +209,48 @@ GO
 --		  Funciones Almacenadas
 ---------------------------------------
 --Función para Calcular el Total de pedidos de un Cliente
-CREATE FUNCTION CalcularTotalPedidos (@id_cliente INT)
-RETURNS FLOAT
+CREATE FUNCTION CalcularTotalPedidos --DEFINIMOS UNA NUEVA FUNCION ALMACENADA LLAMADA CalcularTotalPedidos.
+
+(@id_cliente INT) --le pasamos el parametro de entrada que va a ser @id_cliente y de tipo INT
+				  --representará el identificador único del cliente para el cual se desea calcular el total de pedidos.
+				  
+RETURNS FLOAT --especifica que va a retornar UN VALOR de tipo decimal con presicion simple (FLOAT)
+			  --Este valor representará el total de todos los pedidos del cliente.
+			  
 AS
 BEGIN
-    DECLARE @total_pedidos FLOAT;
+    DECLARE @total_pedidos FLOAT; --declaracion de variable local para almacenar el resultado del total de pedidos
+    
+    /*
+    realiza una consulta a la tabla "pedido" para calcular el total de todos los pedidos del cliente especificado. 
+    La función SUM(monto_total) suma el campo "monto_total" de todos los registros donde el campo "id_cliente" coincide 
+    con el valor pasado como parámetro. El resultado de esta suma se almacena en la variable "@total_pedidos".
+    */
     SELECT @total_pedidos = SUM(monto_total)
     FROM pedido
     WHERE id_cliente = @id_cliente;
-
+	
+	/*
+	Esta línea devuelve el valor de la variable "@total_pedidos". 
+	Si el cliente no tiene pedidos asociados, la función ISNULL reemplaza el valor nulo de "@total_pedidos" por 0, 
+	asegurando que siempre se devuelva un valor numérico.
+	*/
     RETURN ISNULL(@total_pedidos, 0);
+  
 END;
 GO
+--Una vez definido todo el código de lo que va a hacer la funcion, ejecutamos esa porcion de código
+-- y ahi recién se crea la función almacenada para calcular el total de pedidos de un cliente llamada
+--"CalcularTotalPedidos"
+
+--Para hacer un de esta funcion y calcular el total de pedidos para un cliente específico, ejecutamos la siguiente consulta:
+SELECT dbo.CalcularTotalPedidos(id_cliente); --select nombre de la funcion y id del cliente.
+
+
 
 --Función para Obtener el Nombre Completo de un Cliente
-CREATE FUNCTION ObtenerNombreCompleto (@nombre_cliente VARCHAR(100), @apellido_cliente VARCHAR(100))
+CREATE FUNCTION ObtenerNombreCompleto 
+(@nombre_cliente VARCHAR(100), @apellido_cliente VARCHAR(100))
 RETURNS VARCHAR(200)
 AS
 BEGIN
@@ -236,7 +263,8 @@ GO
 --para mostrar el nombre completo del cliente en informes o interfaces donde se requiere el nombre completo en una sola columna.
 
 --Función para Obtener el Estado de Stock de un Producto
-CREATE FUNCTION VerificarStock (@id_producto INT, @cantidad INT)
+CREATE FUNCTION VerificarStock 
+(@id_producto INT, @cantidad INT)
 RETURNS BIT
 AS
 BEGIN
@@ -326,6 +354,4 @@ END;
 GO
 ------------------------------------------fin plus-
 
-/*Video de youtube: CRUD - Procedimientos almacenados para MS SQL Server
-https://www.youtube.com/watch?v=8JwiM2dj-HI&t=1034s*/
 
