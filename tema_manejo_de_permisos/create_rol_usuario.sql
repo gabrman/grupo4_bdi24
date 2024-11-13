@@ -1,57 +1,151 @@
-USE BASEDEDATOS_PLANTAS;
-use plantas_bd
--- ----------------------------------------- 
--- -------Usuario solo lectura--------------
--- ----------------------------------------- 
-/* 1) Creamos un inicio de sesiÛn */
-CREATE LOGIN Tomas WITH PASSWORD = 'def456';
+USE plantas_bd
 
-/* 2) Creamos un usuario de base de datos asociado al inicio de sesiÛn */
-CREATE USER Tomas FOR LOGIN Tomas; 
+	/* Permisos a nivel de usuarios */
 
-/* 3) Agregamos el usuario al rol db_datareader
-db_datareader es un rol predefinido en SQL Server otorga autom·ticamente permisos de lectura a todas las tablas,
-vistas y otras entidades de una base de datos.*/
-ALTER ROLE db_datareader ADD MEMBER Tomas; 
-
+--1) Crear dos usuarios de base de datos
 -- ----------------------------------------- 
--- -------Usuario Administrador-------------
+--			Usuario solo lectura
+-- ----------------------------------------- 
+--i. Creamos un inicio de sesi√≥n 
+CREATE LOGIN tomas_sl WITH PASSWORD = 'def456';
+GO
+
+--ii. Creamos un usuario de base de datos asociado al inicio de sesi√≥n 
+CREATE USER tomas_sl FOR LOGIN tomas_sl; 
+GO
+
+--2)a. Agregamos el usuario al rol db_datareader de solo lectura
+ /* db_datareader es un rol predefinido en SQL Server otorga autom√°ticamente permisos de lectura a todas 
+ las tablas, vistas y otras entidades de una base de datos.*/
+ALTER ROLE db_datareader ADD MEMBER tomas_sl; 
+GO
+-- ----------------------------------------- 
+--        Usuario Administrador
 -- -----------------------------------------
-/* 1) Creamos un inicio de sesiÛn */
-CREATE LOGIN Nicolas WITH PASSWORD = 'ghi789';
+--i. Creamos un inicio de sesi√≥n 
+CREATE LOGIN nicolas_adm WITH PASSWORD = 'ghi789';
+GO
+--ii. Creamos un usuario de base de datos asociado al inicio de sesi√≥n 
+CREATE USER nicolas_adm FOR LOGIN nicolas_adm; 
+GO
+--2)b. Agregamos el usuario al rol db_owner 
+/* db_owner es un rol que otorga a un usuario todos los permisos a nivel base de datos */
+ALTER ROLE db_owner ADD MEMBER nicolas_adm; 
+GO
+-- 3) Al usuario con permiso de solo lectura (tomas_sl), le concedemos el permiso de ejecuci√≥n para el procedimiento ImportarClientesDesdeCSV. 
+GRANT EXECUTE ON OBJECT::ImportarClientesDesdeCSV TO tomas_sl;
+GO
 
-/* 2) Creamos un usuario de base de datos asociado al inicio de sesiÛn */
-CREATE USER Nicolas FOR LOGIN Nicolas; 
+-- 4) Realizar INSERT con sentencia SQL sobre la tabla del procedimiento con ambos usuarios.
+-- ---------------------------------------------------------------------------------------
+-- Prueba de restricciones de acceso para el usuario "tomas_sl" (rol de solo lectura)
+-- ---------------------------------------------------------------------------------------
+/* 
+ Probamos que el usuario "tomas_sl", quien posee el rol de solo lectura en la base de datos 
+ no pueda realizar una operaci√≥n de inserci√≥n. 
+*/
+/* Instrucci√≥n INSERT tabla 'clientes' */
+INSERT INTO clientes (id_cliente, nombre_cliente, apellido_cliente, email, telefono, direccion, dni)
+VALUES (1,'tomas', 'fernandez','tom@gmail.com','3794552255','callefalsa 123', 12314254);
+GO
+--Salida: Se deneg√≥ el permiso INSERT en el objeto 'clientes', base de datos 'plantas_bd', esquema 'dbo'.
 
-/* 3) Agregamos el usuario al rol db_owner 
-db_owner es un rol que otorga a un usuario todos los permisos a nivel base de datos */
-ALTER ROLE db_owner ADD MEMBER Nicolas; 
+--Explicaci√≥n: El usuario "tomas_sl" solo tiene permisos de lectura y no puede modificar los datos de la tabla al intentar insertar un nuevo registro.
 
+-- ----------------------------------------------------------------------------------------
+-- Prueba de restricciones de acceso para el usuario "nicolas_adm" (Rol de Administrador)
+-- ----------------------------------------------------------------------------------------
+/* 
+ Probamos las capacidades de inserci√≥n, consulta, actualizaci√≥n y eliminaci√≥n
+ en las tablas 'clientes' y 'pedido' con el usuario "nicolas_adm", quien posee el rol
+ de administrador en la base de datos. 
+*/
+/* Instrucci√≥n INSERT tabla 'clientes' */
+-- Esta operaci√≥n a√±ade un nuevo cliente a la tabla 'clientes'.
+-- Verificamos que el usuario "nicolas_adm" tiene permisos para crear registros.
+INSERT INTO clientes (nombre_cliente, apellido_cliente, email, telefono, direccion, dni)
+VALUES ('Tomas', 'Fernandez', 'tom@gmail.com', '3794552255', 'callefalsa 123', 12314254);
+GO
+-- Resultado esperado: (1 fila afectada) 
+
+-- 5) Realizar un INSERT a trav√©s del procedimiento almacenado con el usuario con permiso de solo lectura 
+--ejecutar procedimiento
+EXEC ImportarClientesDesdeCSV 'C:\Users\Usuario\Desktop\cli\clientes_07.csv';
+GO
+
+	/* Permisos a nivel de roles del DBMS */
+
+--1) Crear dos usuarios de base de datos
+-- ----------------------------------------------------- 
+--			Usuario solo lectura y usuraio sin permiso
+-- ----------------------------------------------------- 
+
+--i. Creamos los inicio de sesi√≥n 
+CREATE LOGIN usuario_lectura WITH PASSWORD = '123abc';
+GO
+CREATE LOGIN usuario_sin_permiso WITH PASSWORD = '456def';
+GO
+
+--ii. Creamos un usuario de base de datos para cada inicio de sesi√≥n 
+USE plantas_bd; 
+CREATE USER usuario_lectura FOR LOGIN usuario_lectura;
+GO
+CREATE USER usuario_sin_permiso FOR LOGIN usuario_sin_permiso;
+GO
+
+--2) Creamos un rol que solo permita la lectura de alguna de las tablas creadas
+CREATE ROLE rol_solo_lectura;
+GO
+--Asignamos el permiso de lectura sobre la tabla lectura
+GRANT SELECT ON productos TO rol_solo_lectura;
+GO
+--3) Le damos permiso a uno de los usuarios sobre el rol creado anteriormente
+ALTER ROLE rol_solo_lectura ADD MEMBER usuario_lectura;
+GO
+--4) Verificaci√≥n 
+use plantas_bd;
+--a. Utilizando el usuario 'usuario_lectura' con el rol 'rol_solo_lectura'
+SELECT * FROM productos;
+
+--b. Utilizando el usuario 'usuario_sin_permiso' 
+SELECT * FROM productos;
+
+--5) Conclusi√≥n
+/*
+ a. usuario_lectura puede consultar la tabla 'Productos' sin problemas porque tiene el rol rol_solo_lectura 
+ que le permite leer la tabla.
+ b. usuario_sin_permiso no puede acceder a la tabla 'Productos' y recibe un error de permiso SELECT sobre el objeto
+ 'productos', lo cual asegura que los permisos de acceso funcionan correctamente.
+*/
+
+--**                                             **
+--                      plus                     --
+--**                                             **
 -- ----------------------------------------- 
--- ------------Usuario Vendedor-------------
+--			  Usuario Vendedor
 -- -----------------------------------------
 /* 
- CreaciÛn de un inicio de sesiÛn para el usuario jime
- Se crea un inicio de sesiÛn de SQL Server para el usuario jime con la contraseÒa 'abc123'.
- Este inicio de sesiÛn ser· utilizado para autenticarse en la instancia de SQL Server. 
+ Creaci√≥n de un inicio de sesi√≥n para el usuario jime
+ Se crea un inicio de sesi√≥n de SQL Server para el usuario jime con la contrase√±a 'abc123'.
+ Este inicio de sesi√≥n ser√° utilizado para autenticarse en la instancia de SQL Server. 
 */
 CREATE LOGIN jime WITH PASSWORD = 'abc123';
 
 /*
- CreaciÛn de un usuario de base de datos asociado al inicio de sesiÛn.
- Se crea un usuario de base de datos con el mismo nombre que el inicio de sesiÛn.
- Este usuario representa la identidad del usuario dentro de una base de datos especÌfica.
+ Creaci√≥n de un usuario de base de datos asociado al inicio de sesi√≥n.
+ Se crea un usuario de base de datos con el mismo nombre que el inicio de sesi√≥n.
+ Este usuario representa la identidad del usuario dentro de una base de datos espec√≠fica.
 */
 CREATE USER jime FOR LOGIN jime;
 
 /*
- CreaciÛn de un rol personalizado para vendedores
+ Creaci√≥n de un rol personalizado para vendedores
  Se crea un rol llamado 'Vendedor' para agrupar los permisos necesarios para un usuario con este perfil.
 */
 CREATE ROLE Vendedor;
 
 /*
- AsignaciÛn de permisos al rol Vendedor
+ Asignaci√≥n de permisos al rol Vendedor
 */
 GRANT SELECT ON productos TO Vendedor;--Permite consultar los datos de la tabla.
 GRANT SELECT,INSERT,UPDATE ON pedido TO Vendedor;--Permite consultar, insertar y actualizar datos en la tabla.
@@ -59,7 +153,7 @@ GRANT SELECT,INSERT,UPDATE ON pedido TO Vendedor;--Permite consultar, insertar y
 GRANT SELECT ON clientes TO Vendedor;--Permite consultar los datos de la tabla.
 
 /*
- AsignaciÛn del usuario jime al rol Vendedor
+ Asignaci√≥n del usuario jime al rol Vendedor
  El usuario jime se agrega al rol Vendedor, obteniendo todos los permisos asignados a este rol.
 */
 EXEC sp_addrolemember 'Vendedor', 'jime';
