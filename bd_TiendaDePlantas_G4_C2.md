@@ -1,21 +1,22 @@
 
 
 
-Universidad Nacional del Nordeste
-Facultad de Ciencias Exactas y Naturales y Agrimensura
+# Universidad Nacional del Nordeste
+# Facultad de Ciencias Exactas y Naturales y Agrimensura
 
 
 
-Asignatura: Bases de Datos I (FaCENA-UNNE)
-Profesor: Darío Oscar Villegas
+# Asignatura: Bases de Datos I (FaCENA-UNNE)
+# Profesor: 
+Darío Oscar Villegas
 
 
 
-Proyecto de Estudio: 
+# Proyecto de Estudio: 
 Diseño e Implementación de una Base de Datos para la Gestión Interna de una Tienda de Plantas.
 
 
-Autores:
+# Autores:
 Fernandez, Juan Tomás.                            LU: 56305
 Román, Gabriel Esteban.                           LU: 52658
 Torreani Cáceres, Jimena Soraya.                  LU: 48353
@@ -24,8 +25,8 @@ Verdichio, Nicolás Mauricio.                      LU: 56570
 
 
 
-Año: 2024
-ÍNDICE O SUMARIO:
+# Año: 2024
+# ÍNDICE O SUMARIO:
 
 PORTADA/PRESENTACIÓN	1
 ÍNDICE O SUMARIO:	2
@@ -43,45 +44,45 @@ BIBLIOGRAFÍA DE CONSULTA	6
 
 
 
-CAPÍTULO I: INTRODUCCIÓN
+# CAPÍTULO I: INTRODUCCIÓN
 
-a.Tema:
+# a.Tema:
 Este trabajo práctico se enfoca en el diseño e implementación de una base de datos para la gestión de una tienda de plantas que ofrece productos como plantas, macetas y herramientas o accesorios de jardinería. El propósito es resolver problemas relacionados con la administración de la tienda, como el control del inventario, la gestión de ventas y el seguimiento de clientes. El sistema que se desarrollará está orientado a optimizar estos procesos, centralizando toda la información clave en una base de datos relacional.
 
-b. Definición o Planteamiento del Problema:
+# b. Definición o planteamiento del problema:
 Uno de los principales desafíos de un dueño y administrador de una tienda de plantas es mantener un control preciso sobre los productos, el inventario y las ventas. La falta de un sistema de gestión adecuado para el manejo de ventas y stock ha llevado a la necesidad de mejorar la administración de los datos y optimizar la gestión del negocio.
 
 El problema central se define como la necesidad de implementar un sistema automatizado que facilite la gestión del inventario, manteniéndolo actualizado, y permita administrar de manera eficiente el catálogo de productos y el seguimiento de clientes para, en efecto, ofrecer un manejo consistente de los datos. Lo que nos lleva a una serie de interrogantes a los que buscaremos dar respuesta en la base de datos: ¿Qué mecanismos pueden implementarse para alertar al administrador cuando el stock de un producto en específico es insuficiente o está agotado?, ¿cómo se puede garantizar la consistencia e integridad de los datos en el sistema, evitando duplicación y/o pérdida de información? y ¿qué consultas y reportes pueden generarse para facilitar la gestión diaria del inventario, las ventas y los clientes? Estas preguntas nos permitirán una mejor toma de decisiones y, en consecuencia, favorecerán las operaciones de la empresa. 
  
 
-c. Objetivo del Trabajo Práctico:
-i. Objetivo General:
+# c. Objetivo del Trabajo Práctico:
+# i. Objetivo General:
 Desarrollar una base de datos que resuelva las dificultades de administración de la tienda de plantas, integrando de manera eficiente la gestión de productos, ventas y clientes, garantizando la consistencia y disponibilidad de la información.
-ii. Objetivos Específicos:
+# ii. Objetivos específicos:
 Diseñar un modelo de datos que refleje de manera clara y precisa las operaciones diarias de la tienda.
 Implementar mecanismos de control en la base de datos para asegurar la integridad y consistencia de la información.
 Desarrollar un sistema que permita realizar consultas y reportes de manera rápida, facilitando la toma de decisiones basada en datos.
 Optimizar la gestión de ventas, inventario y clientes mediante la implementación de funcionalidades de registro y actualización de información.
 
-Alcance del Proyecto:
+# Alcance del proyecto:
 Este proyecto, se centra en el diseño e implementación de una base de datos relacional para la gestión interna de una tienda de plantas. Para definir el alcance de nuestro trabajo hemos establecido diferentes ejes, los cuales explicitaremos a continuación:
 Gestión de Productos: Planteamos hacer un registro de plantas, macetas y herramientas o accesorios de jardinería almacenando información relevante como descripción, precio, stock y especificaciones entre otros datos. Categoría de productos y control de inventario.
 Gestión de Clientes: Registro y almacenamiento de la información de los clientes. Historial de compras de los clientes.
 Gestión de Pedidos: Registro de pedidos realizados por los clientes. Almacenamiento de los productos incluidos en cada pedido y la cantidad solicitada.
 Análisis de Ventas: Consultas sobre productos más vendidos. Registro de la cantidad de productos vendidos y los ingresos generados.
-Límites del Proyecto: 
+# Límites del proyecto: 
 El proyecto no incluirá las siguientes áreas, ya que no forman parte del enfoque actual del sistema de ventas:
 Sistema de Pagos y Facturación: No se desarrollará ningún módulo para procesar pagos o emitir facturas. Las transacciones monetarias no serán gestionadas por este sistema. El manejo de impuestos, facturación y métodos de pago (tarjeta de crédito, débito, etc.) queda fuera del alcance.
 Logística de Envíos: No se incluirá la gestión de envíos o el seguimiento de los productos hasta la entrega a los clientes. El foco estará en el registro de pedidos sin incluir el procesamiento de la entrega.
 Promociones y Descuentos: No se incluirán funcionalidades relacionadas con la gestión de promociones, cupones de descuento o programas de fidelización de clientes.
 Estos aspectos podrían tratarse en fases posteriores, en caso de que el negocio crezca y requiera un sistema más avanzado, como la implementación de una tienda online o la integración con proveedores.
 
-CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
+# CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
 Este proyecto tiene como objetivo desarrollar conocimientos y habilidades en cuanto a la implementación de conceptos técnicos clave de bases de datos, fundamentales en esta área de investigación y de gran utilidad práctica. Los temas planteados están relacionados con la seguridad y control de acceso en bases de datos, la configuración y restricción de perfiles de usuarios, la optimización y rendimiento con la que puede llegar a trabajar el motor de bases de datos en momentos de ejecución de consultas, así como la creación de procedimientos y funciones almacenadas, tanto definidos por el usuario como por el sistema. También se incluye el análisis de vistas y vistas indexadas para mejorar el acceso a los datos. 
 
 A continuación presentaremos una explicación teórica y clara de cada uno de estos temas técnicos.
 
-Tema: Manejo de permisos a nivel de usuarios de base de datos.
+# Tema: Manejo de permisos a nivel de usuarios de base de datos.
 Para administrar con facilidad los permisos en las bases de datos, SQL Server proporciona varios roles, que son las entidades de seguridad que agrupan otras entidades de seguridad. 
 Se refiere al proceso de controlar y asignar qué acciones puede realizar un usuario específico dentro de una base de datos SQL Server. Esto implica determinar qué datos puede ver, modificar, eliminar o crear, así como qué comandos SQL puede ejecutar.
 Para agregar y quitar usuarios en un rol de base de datos, se utiliza las opciones ADD MEMBER y DROP MEMBER de la instrucción ALTER ROLE.
@@ -92,7 +93,7 @@ Los permisos de los roles de base de datos definidos por el usuario se pueden pe
 
 El manejo de permisos en SQL Server es fundamental para garantizar la seguridad y la integridad de los datos. Al comprender los conceptos básicos y las herramientas disponibles, se puede implementar una estrategia de seguridad efectiva y adecuada a las necesidades del proyecto.
 
-Tema: Procedimientos y funciones almacenadas.
+# Tema: Procedimientos y funciones almacenadas.
 Los procedimientos y funciones almacenadas son bloques de código SQL pre compilados y almacenados directamente en una base de datos. Esto significa que en lugar de enviar múltiples instrucciones SQL individuales a la base de datos cada vez que se necesita realizar una operación, se puede llamar a un único procedimiento o función que contiene todas las instrucciones necesarias.
 Un procedimiento almacenado de SQL Server es un grupo de una o varias instrucciones Transact-SQL . Los procedimientos pueden:
 Aceptar parámetros de entrada y devolver varios valores en forma de parámetros de salida al programa que realiza la llamada.
@@ -118,7 +119,7 @@ Tipos de Procedimientos almacenados
 Procedimientos Almacenados Definidos por el Usuario: Un procedimiento definido por el usuario se puede crear en una base de datos definida por el usuario o en todas las bases de datos del sistema excepto en la base de datos Resource. El procedimiento se puede desarrollar en Transact-SQL o como referencia a un método de Common Language Runtime (CLR) de Microsoft .NET Framework.
 Procedimientos Almacenados del Sistema: Los procedimientos del sistema se incluyen con el motor de base de datos. Están almacenados físicamente en la base de datos interna y oculta Resource y se muestran de forma lógica en el esquema sys de cada base de datos definida por el sistema y por el usuario. Además, la base de datos msdb también contiene procedimientos almacenados del sistema en el esquema dbo que se usan para programar alertas y trabajos. Dado que los procedimientos del sistema empiezan con el prefijo sp_, le recomendamos que no use este prefijo cuando asigne un nombre a los procedimientos definidos por el usuario.
 
-Tema: optimización de consultas mediante índices  
+# Tema: Optimización de consultas mediante índices  
 Los índices son estructuras de datos diseñadas para mejorar el rendimiento de las consultas y acelerar la recuperación de información en una base de datos. Funcionan de manera similar al índice de un libro, ya que permiten encontrar rápidamente la información sin necesidad de revisar todas las filas de la tabla. Se crean en una o varias columnas de una tabla y cada entrada en el índice apunta a la ubicación física de los datos en esa tabla.
 
 Los índices nos permiten el ordenamiento de los datos de las tablas, son objetos físicos por lo tanto ocupan espacio en el disco pero menos que una tabla, porque no almacenan todos los datos de esta, sino únicamente referencias a ciertos datos claves, que ocupamos para dicha tabla. Es una copia de todas las filas, pero solamente de algunas columnas de la tabla sobre la cual definimos el índice.
@@ -130,7 +131,7 @@ Un índice agrupado es similar a una guía telefónica, los registros con el mis
 
 Indices no agrupados: tiene la misma estructura, pero la última fila de nodos no contiene los datos de la tabla sino contiene punteros que nos deriva a otro espacio físico donde están los datos, los punteros indican el lugar de almacenamiento de los elementos indizados en la tabla, es decir, los datos se almacenan en un lugar diferente al del índice. Llevándolo a el mismo ejemplo de la guía seria buscar primero por el índice y después acceden a la hoja donde está buscando el correspondiente dato.
 
-Tema: vistas y vistas indexadas
+# Tema: Vistas y vistas indexadas
 
 Las vistas son tablas virtuales que permiten simplificar las consultas. Estas representan una porción de los datos almacenados en una base de datos. Decimos que son virtuales dado que no contienen datos reales, su contenido está definido por consultas que muestran una selección de columnas y filas que pueden provenir de una o varias tablas, o incluso de otras vistas dentro de la base de datos o de bases de datos externas.  Las vistas se producen de forma dinámica cuando se hace referencia a una de ellas. [refe]
 
@@ -144,12 +145,12 @@ Proporcionar seguridad al limitar el acceso solo a ciertas columnas en una tabla
 
 Por otro lado, una vista indexada (o materializada) es una vista cuya definición ha sido calculada, donde los datos resultantes son almacenados físicamente como una tabla. Las vistas indexadas mejoran en gran medida el rendimiento de ciertos tipos de consultas, ya que tienen un índice asociado que acelera el procesamiento de las consultas. Este índice se crea directamente en la vista y no en las tablas base, ayudando al optimizador de consultas a encontrar los datos que necesita de forma eficiente cuando se consultan a través de la vista.
 
-### Tabla diferencias entre vistas y vistas indexadas
+# Diferencias entre vistas y vistas indexadas
 
 ![image]()
-CAPÍTULO III: METODOLOGÍA SEGUIDA
+# CAPÍTULO III: METODOLOGÍA SEGUIDA
 
-a. Descripción de cómo se realizó el Trabajo Práctico:
+ # a. Descripción de cómo se realizó el Trabajo Práctico:
 
 Iniciamos el proyecto charlando sobre los temas asignados, a medida que nos fuimos interiorizando comenzaron a surgir preguntas tales como:
 ¿En qué se diferencian los permisos a nivel de usuario con los permisos a nivel de roles del DBMS?, ¿Cómo se relacionan las vistas con la seguridad? ¿De qué forma limitan el acceso a datos sensibles? (Restricciones de integridad y visibilidad de datos), ¿Cómo se relacionan las “Vistas indexadas” con la optimización de las consultas?, ¿Cuáles son las características distintivas de las funciones y los procedimientos almacenados? Continuando con cómo podríamos aplicar lo aprendido en nuestro caso de estudio específico. Luego durante la conceptualización del problema, contextualizamos los distintos temas y diagramamos los objetivos generales y específicos como primera parte del proceso de resolución.
@@ -160,7 +161,7 @@ Se desarrollaron las tablas y restricciones de integridad en SQL Server, enfocan
 Realizaron pruebas de rendimiento y optimización de consultas mediante la implementación de índices en columnas clave y la utilización de vistas para simplificar consultas y ocultar información sensible.
 Evaluamos el impacto de los índices en el rendimiento, analizando los planes de ejecución antes y después de implementar los índices. Se desarrollaron procedimientos almacenados para automatizar tareas de inserción, actualización y eliminación de registros. También creamos funciones almacenadas para cálculos específicos, como el total de ventas por cliente.
 
-b. Herramientas (Instrumentos y Procedimientos):
+# b. Herramientas (Instrumentos y Procedimientos):
 
 La obtención de datos se llevó a cabo mediante una búsqueda de la bibliografía especializada en el ámbito de las bases de datos y  sobré los temas introducidos por la cátedra en particular. Se recurrió a fuentes académicas, libros relevantes y artículos científicos encontrados a través de plataformas como Google Scholar. Además, se consultó la documentación oficial de Microsoft SQL Server. Este enfoque permitió recopilar información clave sobre los temas claves de base de datos relacionales, garantizando la calidad y fiabilidad de los datos utilizados en el desarrollo del trabajo.
 
@@ -175,7 +176,7 @@ ERDPlus: Es una herramienta en línea para crear Diagramas de Entidad-Relación 
 Google Meet: Es una aplicación de videoconferencias de Google para navegadores web y dispositivos móviles enfocada al entorno laboral. Realizamos reuniones semanales a través de esta plataforma, donde coordinamos avances, resolvimos dudas y planificamos las próximas tareas del proyecto.
 
 
-CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
+# CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
 Este enfoque presenta el análisis detallado del sistema de gestión para la tienda de plantas.
 El propósito es que, a través de este sistema, la administración de la tienda sea más eficiente, facilitando tanto la operaciones como la toma de decisiones.
@@ -205,12 +206,11 @@ Un seguimiento detallado de las ventas, permitiendo identificar patrones de comp
 Con este sistema, se optimiza tanto la operación interna de la tienda, lo que resulta en una atención  más ágil, mejor disponibilidad de productos y un servicio de mayor calidad. Estos beneficios impactan directamente en la satisfacción del cliente, ofreciéndole una experiencia más eficiente y agradable.
 
 
-Configuración de Seguridad y Control de Acceso
+# Configuración de seguridad y control de acceso
 
 Objetivo: Implementar mecanismos de control en la base de datos para asegurar la integridad y consistencia de la información.
 
 Roles de usuario y permisos:
-
 Se definieron roles de usuario con permisos a nivel de usuarios que controlan el acceso a las tablas según el perfil. En las siguientes figuras se observa el procedimiento de creación de inicio de sesión, usuario y asignación de permisos de solo lectura para el usuario ‘tomas_sl’ y de administrador para el usuario ‘nicolas_adm’. 
 ### 
 ![image]()
@@ -229,21 +229,22 @@ Implementación de vistas para control de acceso:
 Para limitar el acceso directo a ciertos campos sensibles, se crearon vistas que solo muestren la información necesaria para cada tipo de usuario. En la siguiente figura se muestra un ejemplo de vista creada para exponer los detalles de clientes sin mostrar información sensible del mismo.
 ![image]()
 ![image]()
-Optimización de consultas:
+
+# Optimización de consultas:
 Objetivo: Optimizar la gestión de ventas, inventario y clientes mediante la implementación de índices y vistas indexadas.
 
-Análisis de Consultas y Planes de Ejecución:
+Análisis de consultas y planes de ejecución:
 Se ejecutaron pruebas con y sin índices para analizar el rendimiento de las consultas clave. El gráfico 3 muestra el plan de ejecución de una consulta de pedidos antes y después de la implementación de un índice.
 Se observó una reducción en el tiempo de respuesta y en el número de lecturas lógicas, lo cual confirma la efectividad de los índices en las columnas de mayor uso.
 
 
-Desarrollo de Procedimientos y Funciones Almacenadas
+# Desarrollo de procedimientos y funciones almacenadas
 Objetivo: Desarrollar procedimientos almacenados para facilitar la inserción, modificación y eliminación de registros y mejorar la eficiencia en la gestión de datos.
 
-Procedimientos para Inserción y Actualización de Datos:
+Procedimientos para inserción y actualización de Datos:
 Se desarrollaron procedimientos almacenados que automatizan la inserción, actualización y eliminación de registros.
 
-Funciones de Cálculo:
+Funciones de cálculo:
 Se crearon funciones para calcular el monto total de ventas de un cliente, para identificar a los clientes que generan mayores ingresos para el negocio, la cantidad de productos vendidos en un periodo y otros indicadores de rendimiento. En la tabla 3 se presentan los resultados de las funciones aplicadas a un conjunto de datos de prueba.
 
 ### Desarrollo TEMA 1 "----"
@@ -256,7 +257,27 @@ Proin aliquet mauris id ex venenatis, eget fermentum lectus malesuada. Maecenas 
 
 > Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_2](script/tema02_nombre_tema)
 
-... 
+# CAPÍTULO V: CONCLUSIONES 
+
+# Eficiencia en la consulta de datos: 
+Gracias a los índices y vistas implementados pudimos mejorar el rendimiento de la base de datos, especialmente para consultas de análisis de pedidos. Esto refuerza la importancia de un diseño de índices adecuado para optimizar el acceso a la información en sistemas que manejan grandes volúmenes de datos.
+# Seguridad y control de acceso: 
+La estructura de permisos y roles asignados nos permitió tener un control sobre quién accede y modifica la información, protegiendo datos sensibles y mejorando también la seguridad general de la base de datos, reduciendo así el riesgo de accesos no autorizados. El uso de vistas también fue útil para dar una capa de seguridad, limitando el acceso a datos sensibles al ocultar columnas delicadas.
+# Automatización de procesos: 
+La implementación de procedimientos y funciones almacenadas ayudó a la automatización de tareas como la inserción, actualización y eliminación de datos. Esta automatización no solo mejora la eficiencia operativa, sino que también minimiza la posibilidad de errores que podamos cometer al momento de manipular registros, favoreciendo la consistencia de los datos.
+
+A través de este trabajo, se logró fortalecer los conocimientos que habíamos adquirido tanto en teoría como en práctica al implementar un caso de estudio concreto. Este proyecto no solo nos ayudó a comprender mejor técnicas avanzadas en bases de datos, sino que también nos brindó una experiencia significativa en la resolución de problemas reales. Esto nos permitió afianzar habilidades fundamentales para el diseño, optimización y gestión de bases de datos.
+
+# VI. BIBLIOGRAFÍA.
+
+Vistas ![link](https://learn.microsoft.com/es-es/sql/relational-databases/views/views?view=sql-server-ver16)
+Procedimientos almacenados (motor de base de datos) ![link](https://learn.microsoft.com/es-es/sql/relational-databases/stored-procedures/stored-procedures-database-engine?view=sql-server-ver16)
+Roles en el nivel de base de datos ![link](https://learn.microsoft.com/es-es/sql/relational-databases/security/authentication-access/database-level-roles?view=sql-server-ver16)
+T. C. y. C. O. Begg, Database Systems: A Practical Approach to Design, Implementation, and Management, Pearson, 2015.
+R. E. y. S. B. Navathe, Fundamentals of Database Systems, Pearson, 2016.
+G.-M. y. U. Widom, Database Systems The Complete Book, Pearson, 2009.
+
+
 
 
 
