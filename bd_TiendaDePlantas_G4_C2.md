@@ -77,21 +77,20 @@ Promociones y Descuentos: No se incluirán funcionalidades relacionadas con la g
 Estos aspectos podrían tratarse en fases posteriores, en caso de que el negocio crezca y requiera un sistema más avanzado, como la implementación de una tienda online o la integración con proveedores.
 
 CAPÍTULO II: MARCO CONCEPTUAL O REFERENCIAL
-El desarrollo de este proyecto está destinado a generar conocimientos y habilidades en cuanto a la implementación de temas técnicos de bases de datos, muy importantes en esta área de investigación y de gran utilidad.. 
-Los temas técnicos planteados están relacionados a la seguridad de los datos en una base de datos, la configuración y restricción de perfiles de distintos usuarios que acceden a las bases de datos, la optimización, eficiencia y rendimiento con la que puede llegar a trabajar el motor de bases de datos en momentos de ejecución de consultas, la creación de procedimientos almacenados definidos por el usuarios o por el sistema y las funciones almacenadas, y..(lo que refiere al tema vistas y vistas indexadas) , etc..
-A continuación daremos una explicación teórica concisa y lo más concreta posible para cada uno de estos temas técnicos.:
+Este proyecto tiene como objetivo desarrollar conocimientos y habilidades en cuanto a la implementación de conceptos técnicos clave de bases de datos, fundamentales en esta área de investigación y de gran utilidad práctica. Los temas planteados están relacionados con la seguridad y control de acceso en bases de datos, la configuración y restricción de perfiles de usuarios, la optimización y rendimiento con la que puede llegar a trabajar el motor de bases de datos en momentos de ejecución de consultas, así como la creación de procedimientos y funciones almacenadas, tanto definidos por el usuario como por el sistema. También se incluye el análisis de vistas y vistas indexadas para mejorar el acceso a los datos. 
+
+A continuación presentaremos una explicación teórica y clara de cada uno de estos temas técnicos.
 
 Tema: Manejo de permisos a nivel de usuarios de base de datos.
 Para administrar con facilidad los permisos en las bases de datos, SQL Server proporciona varios roles, que son las entidades de seguridad que agrupan otras entidades de seguridad. 
 Se refiere al proceso de controlar y asignar qué acciones puede realizar un usuario específico dentro de una base de datos SQL Server. Esto implica determinar qué datos puede ver, modificar, eliminar o crear, así como qué comandos SQL puede ejecutar.
-Para agregar y quitar usuarios en un rol de base de datos, se utiliza las opciones ADD MEMBER y DROP MEMBER de la instrucción ALTER ROLE .
+Para agregar y quitar usuarios en un rol de base de datos, se utiliza las opciones ADD MEMBER y DROP MEMBER de la instrucción ALTER ROLE.
 
 Existen dos tipos de roles en el nivel de base de datos: los roles fijos de base de datos que están predefinidos en la base de datos y los roles de base de datos definidos por el usuario que el usuario puede crear.
 Los roles fijos de base de datos se definen en el nivel de base de datos y existen en cada una de ellas. Los miembros de los roles de base de datos db_owner pueden administrar la pertenencia a roles fijos de base de datos.
 Los permisos de los roles de base de datos definidos por el usuario se pueden personalizar con las instrucciones GRANT, DENY y REVOKE.
 
 El manejo de permisos en SQL Server es fundamental para garantizar la seguridad y la integridad de los datos. Al comprender los conceptos básicos y las herramientas disponibles, se puede implementar una estrategia de seguridad efectiva y adecuada a las necesidades del proyecto.
-
 
 Tema: Procedimientos y funciones almacenadas.
 Los procedimientos y funciones almacenadas son bloques de código SQL pre compilados y almacenados directamente en una base de datos. Esto significa que en lugar de enviar múltiples instrucciones SQL individuales a la base de datos cada vez que se necesita realizar una operación, se puede llamar a un único procedimiento o función que contiene todas las instrucciones necesarias.
@@ -120,21 +119,16 @@ Procedimientos Almacenados Definidos por el Usuario: Un procedimiento definido p
 Procedimientos Almacenados del Sistema: Los procedimientos del sistema se incluyen con el motor de base de datos. Están almacenados físicamente en la base de datos interna y oculta Resource y se muestran de forma lógica en el esquema sys de cada base de datos definida por el sistema y por el usuario. Además, la base de datos msdb también contiene procedimientos almacenados del sistema en el esquema dbo que se usan para programar alertas y trabajos. Dado que los procedimientos del sistema empiezan con el prefijo sp_, le recomendamos que no use este prefijo cuando asigne un nombre a los procedimientos definidos por el usuario.
 
 Tema: optimización de consultas mediante índices  
-INDICES
-Los Índices son objetos que nos permiten el ordenamiento de los datos de las tablas, son objetos físicos por lo tanto ocupan espacio en el disco menos que una tabla, porque no almacenan todos los datos de la tabla, sino únicamente referencias a ciertos datos claves, que ocupamos para dicha tabla.
+Los índices son estructuras de datos diseñadas para mejorar el rendimiento de las consultas y acelerar la recuperación de información en una base de datos. Funcionan de manera similar al índice de un libro, ya que permiten encontrar rápidamente la información sin necesidad de revisar todas las filas de la tabla. Se crean en una o varias columnas de una tabla y cada entrada en el índice apunta a la ubicación física de los datos en esa tabla.
 
-Es una copia de todas las filas, pero solamente de algunas columnas de la tabla sobre la cual definimos el índice.
+Los índices nos permiten el ordenamiento de los datos de las tablas, son objetos físicos por lo tanto ocupan espacio en el disco pero menos que una tabla, porque no almacenan todos los datos de esta, sino únicamente referencias a ciertos datos claves, que ocupamos para dicha tabla. Es una copia de todas las filas, pero solamente de algunas columnas de la tabla sobre la cual definimos el índice.
 
 Los Índices se dividen en dos tipos: 
-Los Agrupados (Clúster) y los No Agrupados.
 
-INDICES AGRUPADOS: Hacen una búsqueda directa, es decir, los nodos hojas contienen las páginas de datos de la tabla.
+Indices agrupados: hacen una búsqueda directa, es decir, los nodos hojas contienen las páginas de datos de la tabla.
 Un índice agrupado es similar a una guía telefónica, los registros con el mismo valor de campo se agrupan juntos.
 
-INDICES NO AGRUPADOS 
-Tiene la misma estructura, pero la última fila de nodos no contiene los datos de la tabla sino contiene punteros que nos deriva a otro espacio físico donde están los datos, los punteros indican el lugar de almacenamiento de los elementos indizados en la tabla.
-Es decir, los datos se almacenan en un lugar diferente al del índice.
-Llevándolo a el mismo ejemplo de la guía seria buscar primero por el índice y después acceden a la hoja donde está buscando el correspondiente dato.
+Indices no agrupados: tiene la misma estructura, pero la última fila de nodos no contiene los datos de la tabla sino contiene punteros que nos deriva a otro espacio físico donde están los datos, los punteros indican el lugar de almacenamiento de los elementos indizados en la tabla, es decir, los datos se almacenan en un lugar diferente al del índice. Llevándolo a el mismo ejemplo de la guía seria buscar primero por el índice y después acceden a la hoja donde está buscando el correspondiente dato.
 
 Tema: vistas y vistas indexadas
 
@@ -149,6 +143,37 @@ Reducir la complejidad para uno o para otros usuarios de la base de datos mostra
 Proporcionar seguridad al limitar el acceso solo a ciertas columnas en una tabla ocultando datos sensibles que no deben estar disponibles para todos los usuarios.
 
 Por otro lado, una vista indexada (o materializada) es una vista cuya definición ha sido calculada, donde los datos resultantes son almacenados físicamente como una tabla. Las vistas indexadas mejoran en gran medida el rendimiento de ciertos tipos de consultas, ya que tienen un índice asociado que acelera el procesamiento de las consultas. Este índice se crea directamente en la vista y no en las tablas base, ayudando al optimizador de consultas a encontrar los datos que necesita de forma eficiente cuando se consultan a través de la vista.
+
+### Tabla diferencias entre vistas y vistas indexadas
+
+![image]()
+CAPÍTULO III: METODOLOGÍA SEGUIDA
+
+a. Descripción de cómo se realizó el Trabajo Práctico:
+
+Iniciamos el proyecto charlando sobre los temas asignados, a medida que nos fuimos interiorizando comenzaron a surgir preguntas tales como:
+¿En qué se diferencian los permisos a nivel de usuario con los permisos a nivel de roles del DBMS?, ¿Cómo se relacionan las vistas con la seguridad? ¿De qué forma limitan el acceso a datos sensibles? (Restricciones de integridad y visibilidad de datos), ¿Cómo se relacionan las “Vistas indexadas” con la optimización de las consultas?, ¿Cuáles son las características distintivas de las funciones y los procedimientos almacenados? Continuando con cómo podríamos aplicar lo aprendido en nuestro caso de estudio específico. Luego durante la conceptualización del problema, contextualizamos los distintos temas y diagramamos los objetivos generales y específicos como primera parte del proceso de resolución.
+
+Se diseñó un modelo de datos relacional para una tienda de plantas, teniendo en cuenta las entidades principales (clientes, productos, pedidos) y sus relaciones. También se crearon diagramas entidad-relación (ER) para tener una visualización más clara de la estructura y las distintas relaciones entre las tablas.
+
+Se desarrollaron las tablas y restricciones de integridad en SQL Server, enfocandonos en la eficiencia y consistencia de los datos. Establecimos claves primarias, foráneas y restricciones CHECK para validar y mantener la integridad de la información en las tablas. Creamos usuarios y configuramos roles de usuario, estableciendo permisos específicos para cada perfil de usuario en la base de datos. 
+Realizaron pruebas de rendimiento y optimización de consultas mediante la implementación de índices en columnas clave y la utilización de vistas para simplificar consultas y ocultar información sensible.
+Evaluamos el impacto de los índices en el rendimiento, analizando los planes de ejecución antes y después de implementar los índices. Se desarrollaron procedimientos almacenados para automatizar tareas de inserción, actualización y eliminación de registros. También creamos funciones almacenadas para cálculos específicos, como el total de ventas por cliente.
+
+b. Herramientas (Instrumentos y Procedimientos):
+
+La obtención de datos se llevó a cabo mediante una búsqueda de la bibliografía especializada en el ámbito de las bases de datos y  sobré los temas introducidos por la cátedra en particular. Se recurrió a fuentes académicas, libros relevantes y artículos científicos encontrados a través de plataformas como Google Scholar. Además, se consultó la documentación oficial de Microsoft SQL Server. Este enfoque permitió recopilar información clave sobre los temas claves de base de datos relacionales, garantizando la calidad y fiabilidad de los datos utilizados en el desarrollo del trabajo.
+
+SQL Server: Fue el motor de base de datos seleccionado para diseñar, implementar y probar la base de datos, dada su robustez en el manejo de datos relacionales y sus opciones de optimización.
+
+SQL Server Management Studio (SSMS): Se utilizó como entorno de desarrollo para escribir consultas, procedimientos almacenados, vistas e índices, y también para visualizar los planes de ejecución y analizar el rendimiento de las consultas.
+
+Mockaroo: Es una herramienta gratuita para generar datos de prueba y simular APIs, permitiendo crear conjuntos de datos de prueba personalizados en formatos como CSV, JSON, SQL y Excel de manera rápida y sencilla para diversas aplicaciones, facilitando pruebas más efectivas. Con ella creamos un lote de datos de 1000 registros para luego insertarlos en nuestra tabla de clientes.
+
+ERDPlus: Es una herramienta en línea para crear Diagramas de Entidad-Relación (ERDs), Esquemas Relacionales, Esquemas Estrella y declaraciones SQL DDL. ERDPlus te permite visualizar tus diagramas de base de datos y crear tus bases de datos de manera rápida y eficiente.
+
+Google Meet: Es una aplicación de videoconferencias de Google para navegadores web y dispositivos móviles enfocada al entorno laboral. Realizamos reuniones semanales a través de esta plataforma, donde coordinamos avances, resolvimos dudas y planificamos las próximas tareas del proyecto.
+
 
 CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
@@ -166,14 +191,10 @@ En la tabla ventas conectan estos elementos, registrando cada transacción reali
 ![image](https://github.com/user-attachments/assets/2eb35ed2-1a16-4bf9-970a-93524f152c3f)
 
 
-
-
-
 ### Diccionario de datos
 
 Acceso al documento [PDF](Docs/diccionario_datos_tiendaPlantas.pdf) del diccionario de datos.
 El diseño de estas tablas garantiza que cada proceso en la tienda sea registrado de manera precisa, evitando duplicidades y asegurando la integridad de los datos.
-
 
 
 3. Análisis de Resultados
@@ -184,11 +205,46 @@ Un seguimiento detallado de las ventas, permitiendo identificar patrones de comp
 Con este sistema, se optimiza tanto la operación interna de la tienda, lo que resulta en una atención  más ágil, mejor disponibilidad de productos y un servicio de mayor calidad. Estos beneficios impactan directamente en la satisfacción del cliente, ofreciéndole una experiencia más eficiente y agradable.
 
 
+Configuración de Seguridad y Control de Acceso
+
+Objetivo: Implementar mecanismos de control en la base de datos para asegurar la integridad y consistencia de la información.
+
+Roles de usuario y permisos:
+
+Se definieron roles de usuario con permisos a nivel de usuarios que controlan el acceso a las tablas según el perfil. En las siguientes figuras se observa el procedimiento de creación de inicio de sesión, usuario y asignación de permisos de solo lectura para el usuario ‘tomas_sl’ y de administrador para el usuario ‘nicolas_adm’. 
+### 
+![image]()
+![image]()
+Se comprobó el comportamiento de los usuarios al acceder a la base de datos, verificando que los permisos asignados restringen adecuadamente las operaciones.
+Ejecución de la instrucción INSERT sobre la tabla 'clientes' con el usuario con el rol sólo lectura:
+![image]()
+Explicación: el usuario "tomas_sl" sólo tiene permisos de lectura y no puede modificar los datos de la tabla al intentar insertar un nuevo registro.
+Ejecución de la consulta SELECT sobre la tabla clientes con el usuario ‘tomas_s’l: 
+![image]()
+Ejecución de la instrucción INSERT sobre la tabla 'clientes' con el usuario con el rol de administrador:
+![image]()
+Explicación: ya que db_owner es un rol que concede acceso total, los usuarios que pertenecen a este rol no están restringidos en ninguna operación dentro de la base de datos
+
+Implementación de vistas para control de acceso:
+Para limitar el acceso directo a ciertos campos sensibles, se crearon vistas que solo muestren la información necesaria para cada tipo de usuario. En la siguiente figura se muestra un ejemplo de vista creada para exponer los detalles de clientes sin mostrar información sensible del mismo.
+![image]()
+![image]()
+Optimización de consultas:
+Objetivo: Optimizar la gestión de ventas, inventario y clientes mediante la implementación de índices y vistas indexadas.
+
+Análisis de Consultas y Planes de Ejecución:
+Se ejecutaron pruebas con y sin índices para analizar el rendimiento de las consultas clave. El gráfico 3 muestra el plan de ejecución de una consulta de pedidos antes y después de la implementación de un índice.
+Se observó una reducción en el tiempo de respuesta y en el número de lecturas lógicas, lo cual confirma la efectividad de los índices en las columnas de mayor uso.
 
 
+Desarrollo de Procedimientos y Funciones Almacenadas
+Objetivo: Desarrollar procedimientos almacenados para facilitar la inserción, modificación y eliminación de registros y mejorar la eficiencia en la gestión de datos.
 
+Procedimientos para Inserción y Actualización de Datos:
+Se desarrollaron procedimientos almacenados que automatizan la inserción, actualización y eliminación de registros.
 
-
+Funciones de Cálculo:
+Se crearon funciones para calcular el monto total de ventas de un cliente, para identificar a los clientes que generan mayores ingresos para el negocio, la cantidad de productos vendidos en un periodo y otros indicadores de rendimiento. En la tabla 3 se presentan los resultados de las funciones aplicadas a un conjunto de datos de prueba.
 
 ### Desarrollo TEMA 1 "----"
 
